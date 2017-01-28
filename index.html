@@ -24,6 +24,11 @@
   npm: {}
 };
 var da = require('direape@0.1');
+var jodom = require('direape@0.1/jodom');
+da.run(da.parent, 'reun:run', `
+console.log('here');
+`,'');
+
 da.run(da.parent, 'appedit:html',`
 &lt;center&gt;
   &lt;h1&gt;Change me&lt;/h1&gt;
