@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+    <meta charset="utf-8">
+    <title>alphabet-game</title>
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel=icon href=icon.png>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+    <body>
+    <div id=app>
+    <p><img src=https://raw.githubusercontent.com/KodeKunstner/alphabet-game/master/icon.png width=96 height=96 align=right></p>
+<p><a href="https://github.com/KodeKunstner/alphabet-game"><img src="https://img.shields.io/badge/github-KodeKunstner/alphabet-game-blue.svg" alt="github" /></a>
+<a href="https://codeclimate.com/github/KodeKunstner/alphabet-game"><img src="https://img.shields.io/codeclimate/github/KodeKunstner/alphabet-game.svg" alt="codeclimate" /></a></p>
+<h1 id="sampleapp">Sample app</h1>
+<p>This is a bit of documentation, try 'Read' above. Code can be written as semi-literate code, see more here <a href="https://en.wikipedia.org/wiki/Literate_programming">https://en.wikipedia.org/wiki/Literate_programming</a></p>
+<pre><code>module.meta = {
+  id: 'alphabet-game',
+  version: '0.0.1'
+};
+var da = require('direape@0.1');
+da.run(da.parent, 'appedit:html',`
+&lt;center&gt;
+  &lt;h1&gt;Change me&lt;/h1&gt;
+  &lt;p&gt;Try to edit the code.&lt;/p&gt;
+  &lt;p&gt;Choose Edit above, and then&lt;br&gt;
+     alter the code on the left side...&lt;/p&gt;
+  (vi keybindings is enabled,&lt;br&gt;
+  so press &lt;tt&gt;i&lt;/tt&gt; to insert)
+&lt;/center&gt;
+${Object.keys(require('lodash')).join('&lt;br&gt;')}
+`);
+</code></pre>
+  </div>
+    <script src=https://unpkg.com/reun></script>
+    <script>document.write('<script src="//incoming.solsort.com/log.js?' + location.protocol + '//' + location.host + location.pathname + location.search + '" async></s' + 'cript>');</script>
+    <script>setTimeout(()=>reun.require('./alphabet-game.js'),0);</script>
+    </body>
+    
