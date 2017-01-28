@@ -2,7 +2,6 @@
 
 [![github](https://img.shields.io/badge/github-KodeKunstner/alphabet-game-blue.svg)](https://github.com/KodeKunstner/alphabet-game)
 [![codeclimate](https://img.shields.io/codeclimate/github/KodeKunstner/alphabet-game.svg)](https://codeclimate.com/github/KodeKunstner/alphabet-game)
-[![npm](https://img.shields.io/npm/v/alphabet-game.svg)](https://www.npmjs.com/package/alphabet-game)
 
 # alfabet spil til Theodor
 
@@ -11,7 +10,7 @@ This is a bit of documentation, try 'Read' above. Code can be written as semi-li
     module.meta = {
       id: 'alphabet-game',
       version: '0.0.1',
-      npm: {}
+      npmjs: {}
     };
     var da = require('direape@0.1');
     da.run(da.parent, 'appedit:html',`
