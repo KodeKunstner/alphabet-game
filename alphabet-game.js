@@ -5,7 +5,7 @@
 module.meta = {
   id: 'alphabet-game',
   version: '0.0.1',
-  npmjs: {}
+  npm: {}
 };
 var da = require('direape@0.1');
 da.run(da.parent, 'appedit:html',`
