@@ -14,6 +14,11 @@ This is a bit of documentation, try 'Read' above. Code can be written as semi-li
       npm: {}
     };
     var da = require('direape@0.1');
+    var jodom = require('direape@0.1/jodom');
+    da.run(da.parent, 'reun:run', `
+    console.log('here');
+    `,'');
+    
     da.run(da.parent, 'appedit:html',`
     <center>
       <h1>Change me</h1>
