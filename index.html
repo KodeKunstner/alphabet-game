@@ -18,27 +18,28 @@
 <a href="https://www.npmjs.com/package/alphabet-game"><img src="https://img.shields.io/npm/v/alphabet-game.svg" alt="npm" /></a></p>
 <h1 id="alfabetspiltiltheodor">alfabet spil til Theodor</h1>
 <p>This is a bit of documentation, try 'Read' above. Code can be written as semi-literate code, see more here <a href="https://en.wikipedia.org/wiki/Literate_programming">https://en.wikipedia.org/wiki/Literate_programming</a></p>
-<pre><code>module.meta = {
+<pre><code>exports.meta = {
   id: 'alphabet-game',
   version: '0.0.1',
   npm: {}
 };
-var da = require('direape@0.1');
-var jodom = require('direape@0.1/jodom');
-da.run(da.parent, 'reun:run', `
-console.log('here');
-`,'');
-
-da.run(da.parent, 'appedit:html',`
+var ss = require('solsort@0.1');
+ss.html(`
+&lt;style&gt;
+#alphabet {
+display: inline-block;
+width: 100%;
+height: 100%;
+background: red;
+}
+&lt;/style&gt;
+&lt;div id=alphabet
+&gt;
+${123}
+{ss.htmlEvent('hello')}
+"Hello world"
+&lt;/div&gt;
 &lt;center&gt;
-  &lt;h1&gt;Change me&lt;/h1&gt;
-  &lt;p&gt;Try to edit the code.&lt;/p&gt;
-  &lt;p&gt;Choose Edit above, and then&lt;br&gt;
-     alter the code on the left side...&lt;/p&gt;
-  (vi keybindings is enabled,&lt;br&gt;
-  so press &lt;tt&gt;i&lt;/tt&gt; to insert)
-&lt;/center&gt;
-${Object.keys(require('lodash')).join('&lt;br&gt;')}
 `);
 </code></pre>
   </div>
