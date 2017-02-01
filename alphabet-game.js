@@ -4,9 +4,18 @@
 
 exports.meta = { id: 'alphabet-game' };
 var ss = require('solsort@0.1');
+var da = require('direape@0.1');
+
 var letters = 'abcdefghijklmnopqrstuvwxyz';
-var letter = letters[(Math.random() * letters.length) | 0];
-ss.handle('letter', o => console.log('letter', o));
+function randomLetter() {
+  return letters[(Math.random() * letters.length) | 0];
+}
+da.setJS(['letter'], da.getJS(['letter'], randomLetter()));
+ss.handle('letter', o => {
+  console.log('letter', o);
+  da.setJS(['letter'], randomLetter());
+  ui();
+});
 
 function ui() {
 ss.html(`
@@ -19,14 +28,10 @@ background: red;
 }
 </style>
 <div id=alphabet
-onclick=${ss.htmlEvent('letter')}
 >
 
-<h1>${letter}</h1>
+<h1>${da.getJS(['letter'])}</h1>
 <input autofocus onkeydown=${ss.htmlEvent('letter')}>
-${123}
-
-"Hello world"
 </div>
 `);
 }
