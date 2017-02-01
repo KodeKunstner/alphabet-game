@@ -19,9 +19,18 @@
 <p>This is a bit of documentation, try 'Read' above. Code can be written as semi-literate code, see more here <a href="https://en.wikipedia.org/wiki/Literate_programming">https://en.wikipedia.org/wiki/Literate_programming</a></p>
 <pre><code>exports.meta = { id: 'alphabet-game' };
 var ss = require('solsort@0.1');
+var da = require('direape@0.1');
+
 var letters = 'abcdefghijklmnopqrstuvwxyz';
-var letter = letters[(Math.random() * letters.length) | 0];
-ss.handle('letter', o =&gt; console.log('letter', o));
+function randomLetter() {
+  return letters[(Math.random() * letters.length) | 0];
+}
+da.setJS(['letter'], da.getJS(['letter'], randomLetter()));
+ss.handle('letter', o =&gt; {
+  console.log('letter', o);
+  da.setJS(['letter'], randomLetter());
+  ui();
+});
 
 function ui() {
 ss.html(`
@@ -34,14 +43,10 @@ background: red;
 }
 &lt;/style&gt;
 &lt;div id=alphabet
-onclick=${ss.htmlEvent('letter')}
 &gt;
 
-&lt;h1&gt;${letter}&lt;/h1&gt;
+&lt;h1&gt;${da.getJS(['letter'])}&lt;/h1&gt;
 &lt;input autofocus onkeydown=${ss.htmlEvent('letter')}&gt;
-${123}
-
-"Hello world"
 &lt;/div&gt;
 `);
 }
