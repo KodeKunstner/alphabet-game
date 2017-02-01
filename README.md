@@ -2,18 +2,27 @@
 
 [![github](https://img.shields.io/badge/github-KodeKunstner/alphabet-game-blue.svg)](https://github.com/KodeKunstner/alphabet-game)
 [![codeclimate](https://img.shields.io/codeclimate/github/KodeKunstner/alphabet-game.svg)](https://codeclimate.com/github/KodeKunstner/alphabet-game)
-[![npm](https://img.shields.io/npm/v/alphabet-game.svg)](https://www.npmjs.com/package/alphabet-game)
 
 # alfabet spil til Theodor
 
 This is a bit of documentation, try 'Read' above. Code can be written as semi-literate code, see more here <https://en.wikipedia.org/wiki/Literate_programming>
     
-    exports.meta = {
-      id: 'alphabet-game',
-      version: '0.0.1',
-      npm: {}
-    };
+    exports.meta = { id: 'alphabet-game' };
     var ss = require('solsort@0.1');
+    var da = require('direape@0.1');
+    
+    var letters = 'abcdefghijklmnopqrstuvwxyz';
+    function randomLetter() {
+      return letters[(Math.random() * letters.length) | 0];
+    }
+    da.setJS(['letter'], da.getJS(['letter'], randomLetter()));
+    ss.handle('letter', o => {
+      console.log('letter', o);
+      da.setJS(['letter'], randomLetter());
+      ui();
+    });
+    
+    function ui() {
     ss.html(`
     <style>
     #alphabet {
@@ -25,9 +34,12 @@ This is a bit of documentation, try 'Read' above. Code can be written as semi-li
     </style>
     <div id=alphabet
     >
-    ${123}
-    {ss.htmlEvent('hello')}
-    "Hello world"
+    
+    <h1>${da.getJS(['letter'])}</h1>
+    <input autofocus onkeydown=${ss.htmlEvent('letter')}>
     </div>
-    <center>
     `);
+    }
+    
+    ui();
+      
