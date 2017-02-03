@@ -15,43 +15,39 @@
     <p><img src=https://raw.githubusercontent.com/KodeKunstner/alphabet-game/master/icon.png width=96 height=96 align=right></p>
 <p><a href="https://github.com/KodeKunstner/alphabet-game"><img src="https://img.shields.io/badge/github-KodeKunstner/alphabet-game-blue.svg" alt="github" /></a>
 <a href="https://codeclimate.com/github/KodeKunstner/alphabet-game"><img src="https://img.shields.io/codeclimate/github/KodeKunstner/alphabet-game.svg" alt="codeclimate" /></a></p>
-<h1 id="alfabetspiltiltheodor">alfabet spil til Theodor</h1>
+<h1 id="sampleapp">Sample app</h1>
 <p>This is a bit of documentation, try 'Read' above. Code can be written as semi-literate code, see more here <a href="https://en.wikipedia.org/wiki/Literate_programming">https://en.wikipedia.org/wiki/Literate_programming</a></p>
-<pre><code>exports.meta = { id: 'alphabet-game' };
+<pre><code>exports.meta = {
+  id: 'alphabet-game',
+  version: '0.0.1'
+};
 var ss = require('solsort@0.1');
 var da = require('direape@0.1');
 
-var letters = 'abcdefghijklmnopqrstuvwxyz';
-function randomLetter() {
-  return letters[(Math.random() * letters.length) | 0];
-}
-da.setJS(['letter'], da.getJS(['letter'], randomLetter()));
-ss.handle('letter', o =&gt; {
-  console.log('letter', o);
-  da.setJS(['letter'], randomLetter());
-  ui();
+da.handle('key',  o =&gt; {
+  var key = String.fromCharCode(o.keyCode).toUpperCase();
+  console.log(key);
 });
-
-function ui() {
-ss.html(`
-&lt;style&gt;
-#alphabet {
-display: inline-block;
-width: 100%;
-height: 100%;
-background: red;
-}
-&lt;/style&gt;
-&lt;div id=alphabet
-&gt;
-
-&lt;h1&gt;${da.getJS(['letter'])}&lt;/h1&gt;
-&lt;input autofocus onkeydown=${ss.htmlEvent('letter')}&gt;
-&lt;/div&gt;
-`);
+var letters = '';
+for(var i = 0; i &lt; 40*10; i++) {
+  letters += String.fromCharCode(65 + Math.random() * 25 | 0);
+  letters += ' ';
 }
 
-ui();
+
+ss.html(['div',
+         ['code',
+          {style: {fontSize: 20,
+                   display: 'inline-block',
+                   width: '44ex'
+                  }}, letters],
+         ['br'],
+  ['input', {
+    value: '',
+  autoFocus: true,
+  onKeyDown: ss.event('key', {extract:'keyCode'})
+}]]); 
+console.log(da);
 </code></pre>
   </div>
     <script src=https://unpkg.com/reun></script>
